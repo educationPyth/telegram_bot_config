@@ -1,9 +1,9 @@
-import asyncio  
+import asyncio
 import logging  
 from aiogram import Bot, Dispatcher  
 from aiogram.filters import Command  
 from aiogram import F
-from core.handlers.basic import get_start
+from core.handlers.basic import *
 from core.settings import settings
 from core.utils.commands import set_commands
 
@@ -24,7 +24,11 @@ async def start():
     bot = Bot(token=settings.bots.bot_token)
     dp = Dispatcher()  # Создаём диспетчер без бота
 
-    dp.message.register(get_start, Command(commands='start'))  # Регистрация обработчика
+    # Регистрация обработчиков
+    dp.message.register(get_start, Command(commands='start'))
+    dp.message.register(start_settings, Command(commands='start_settings'))
+
+
 
     try:
         await bot.get_me()  # Проверка, работает ли бот
