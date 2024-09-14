@@ -8,14 +8,18 @@ async def set_commands(bot: Bot):
             command='start',
             description='Start bot'
         ),
-        BotCommand(
-            command='help',
-            description='helper'
-        ),
+        # BotCommand(
+        #     command='help',
+        #     description='helper'
+        # ),
         BotCommand(
             command='start_settings',
             description='create new params for bot'
         ),
+        BotCommand(
+            command='menu',
+            description='menu list'
+        )
     ]
 
     await bot.set_my_commands(commands, BotCommandScopeDefault())
